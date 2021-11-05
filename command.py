@@ -64,4 +64,8 @@ def cmd_roll(*args):
     return f"Total: **{total}**\n[{histstr}]"
 
 def cmd_choose(*args):
+    if len(args) == 0:
+        return "I can't choose anything if you don't give me options."
+    elif len(args) == 1:
+        return "You know the answer."
     return f"I choose: **{random.choice(args)}**"

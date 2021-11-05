@@ -1,3 +1,5 @@
+import re
+
 def split_message(msg):
     result = []
     while True:
@@ -5,13 +7,13 @@ def split_message(msg):
 
         if len(msg) == 0: break
 
-        sep = ' '
+        sep = '[\t\n ]+'
         if msg[0] in ['"', "'"]:
-            sep = msg[0]
+            sep = r"(?<!\\)" + msg[0]
             msg = msg[1:]
 
-        out = msg.split(sep, 1)
-        result.append(out[0])
+        out = re.split(sep, msg, 1)
+        result.append(re.sub(r"\\", "", out[0]))
         if len(out) > 1:
             msg = out[1]
         else:
