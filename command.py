@@ -8,10 +8,16 @@ def cmd_rng(*args):
     low = 1
     high = 0
     if len(args) == 1:
-        high = int(args[0])
+        if args[0].isnumeric():
+            high = int(args[0])
+        else:
+            return "That's not a number."
     elif len(args) == 2:
-        low  = int(args[0])
-        high = int(args[1])
+        if args[0].isnumeric() and args[1].isnumeric():
+            low  = int(args[0])
+            high = int(args[1])
+        else:
+            return "That's not a number."
     elif len(args) < 1:
         return "I need at least one argument."
     else:
