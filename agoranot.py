@@ -7,6 +7,7 @@ ci = CommandInterpreter({
     "help": command.cmd_help,
     "rng": command.cmd_rng,
     "roll": command.cmd_roll,
+    "choose": command.cmd_choose,
 })
 
 client = zulip.Client(config_file="zuliprc")

@@ -62,3 +62,6 @@ def cmd_roll(*args):
 
     histstr = ", ".join([f"**{i}**" for i in history])
     return f"Total: **{total}**\n[{histstr}]"
+
+def cmd_choose(*args):
+    return f"I choose: **{random.choice(args)}**"
